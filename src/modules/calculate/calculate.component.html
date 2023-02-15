@@ -1,0 +1,86 @@
+<div class="container text-center">
+    <br>
+    <div class="card text-center">
+      <div class="card-header">
+        โปรแกรมการคำนวณสภาวสุขภาพ
+      </div>
+  
+  
+      <div class="card-body">
+       
+        <div class="row">
+          <div class="col-4">
+            ความดัน (mmHg)
+          </div>
+          <div class="col-8">
+            <div class="input-group mb-3">
+              <input type="number" class="form-control" [(ngModel)]="pressureHigh">
+              <span class="input-group-text">/</span>
+              <input type="number" class="form-control" [(ngModel)]="pressureLow">
+            </div>
+          </div>
+        </div>
+  
+        <br>
+  
+        <div class="row">
+          <div class="col-4">
+            ค่าน้ำตาล (mg/dl)
+          </div>
+          <div class="col-8">
+            <input type="number" class="form-control" [(ngModel)]="sugar">
+          </div>
+        </div>
+
+        <br>
+  
+        <div class="row">
+          <div class="col-4">
+
+          </div>
+          <div class="col-8" style="text-align: left;">
+            <button type="button" class="btn btn-primary" (click)="fnCalculate()">คำนวณ</button>
+          </div>
+        </div>
+
+      </div>
+  
+    </div>
+  </div>
+
+<br>
+
+
+<div *ngIf="resultSugar > 0 || resultPressure > 0">
+    <div style="text-align: center;"><b>ผลการประเมิน</b></div>
+    <div class="text-center">
+
+      <div *ngIf="resultSugar == 1 || resultPressure == 1">
+        <img src="../assets/image/white.jpg" class="img-thumbnail" [ngClass]="{'limit-width': getScreenWidth >= 780}">
+      </div>
+
+      <div *ngIf="resultSugar == 2 || resultPressure == 2">
+        <img src="../assets/image/lightgreen.jpg" class="img-thumbnail" [ngClass]="{'limit-width': getScreenWidth >= 780}">
+      </div>
+
+      <div *ngIf="resultSugar == 3 || resultPressure == 3">
+        <img src="../assets/image/darkgreen.jpg" class="img-thumbnail" [ngClass]="{'limit-width': getScreenWidth >= 780}">
+      </div>
+
+      <div *ngIf="resultSugar == 4 || resultPressure == 4">
+        <img src="../assets/image/yellow.jpg" class="img-thumbnail" [ngClass]="{'limit-width': getScreenWidth >= 780}">
+      </div>
+
+      <div *ngIf="resultSugar == 5 || resultPressure == 5">
+        <img src="../assets/image/orange.jpg" class="img-thumbnail" [ngClass]="{'limit-width': getScreenWidth >= 780}">
+      </div>
+
+      <div *ngIf="resultSugar == 6 || resultPressure == 6">
+        <img src="../assets/image/red.jpg" class="img-thumbnail" [ngClass]="{'limit-width': getScreenWidth >= 780}">
+      </div>
+
+      <div *ngIf="resultSugar == 7 || resultPressure == 7">
+        <img src="../assets/image/black.jpg" class="img-thumbnail" [ngClass]="{'limit-width': getScreenWidth >= 780}">
+      </div>
+    </div>
+</div>
